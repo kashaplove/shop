@@ -15,3 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Controllers\Main\IndexController::class)->name('main.index');
 
+Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function() {
+    Route::get('/', 'IndexController')->name('category.index');
+    Route::get('/create', 'CreateController')->name('category.create');
+    Route::post('/', 'StoreController')->name('category.store');
+    Route::get('/{category}', 'ShowController')->name('category.show');
+    Route::get('/{category}/edit', 'EditController')->name('category.edit');
+    Route::patch('/{category}', 'UpdateController')->name('category.update');
+    Route::delete('/{category}', 'DeleteController')->name('category.delete');
+});
+
