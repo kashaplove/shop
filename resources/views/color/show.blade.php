@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Категории</h1>
+                    <h1 class="m-0">Цвет "{{ $color->title }}"</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Категории</li>
+                        <li class="breadcrumb-item active">Цвет</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,27 +25,32 @@
             <div class="row">
                 <div class="col-6">
                     <div class="card">
-                        <div class="card-header">
-                            <a href="{{ route('category.create') }}" class="btn btn-primary">Создать</a>
+                        <div class="d-flex p-3">
+                            <div class="mr-3">
+                                <a href="{{ route('color.edit', $color->id) }}" class="btn btn-primary">Редактировать</a>
+                            </div>
+                            <form action="{{ route('color.delete', $color->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <input type="submit" class="btn btn-danger" value="Удалить">
+                            </form>
                         </div>
 
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Наименование</th>
-                                    <th>Кол-во товаров</th>
-                                </tr>
-                                </thead>
                                 <tbody>
-                                @foreach($categories as $category)
                                     <tr>
-                                        <td>{{ $category->id }}</td>
-                                        <td><a href="{{ route('category.show', $category) }}">{{ $category->title }}</a></td>
-                                        <td>{{ $category->posts }}</td>
+                                        <td>ID</td>
+                                        <td>{{ $color->id }}</td>
                                     </tr>
-                                @endforeach
+                                    <tr>
+                                        <td>Наименование</td>
+                                        <td>{{ $color->title }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Цвет</td>
+                                        <td><div style="width: 20px; height: 20px; background-color: {{'#' . $color->title }};"></div></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

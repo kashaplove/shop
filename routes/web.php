@@ -25,3 +25,23 @@ Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function() {
     Route::delete('/{category}', 'DeleteController')->name('category.delete');
 });
 
+Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function() {
+    Route::get('/', 'IndexController')->name('tag.index');
+    Route::get('/create', 'CreateController')->name('tag.create');
+    Route::post('/', 'StoreController')->name('tag.store');
+    Route::get('/{tag}', 'ShowController')->name('tag.show');
+    Route::get('/{tag}/edit', 'EditController')->name('tag.edit');
+    Route::patch('/{tag}', 'UpdateController')->name('tag.update');
+    Route::delete('/{tag}', 'DeleteController')->name('tag.delete');
+});
+
+Route::group(['namespace' => 'Color', 'prefix' => 'colors'], function() {
+    Route::get('/', 'IndexController')->name('color.index');
+    Route::get('/create', 'CreateController')->name('color.create');
+    Route::post('/', 'StoreController')->name('color.store');
+    Route::get('/{color}', 'ShowController')->name('color.show');
+    Route::get('/{color}/edit', 'EditController')->name('color.edit');
+    Route::patch('/{color}', 'UpdateController')->name('color.update');
+    Route::delete('/{color}', 'DeleteController')->name('color.delete');
+});
+

@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Категории</h1>
+                    <h1 class="m-0">Цвета</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Категории</li>
+                        <li class="breadcrumb-item active">Цвета</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -26,7 +26,7 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="card-header">
-                            <a href="{{ route('category.create') }}" class="btn btn-primary">Создать</a>
+                            <a href="{{ route('color.create') }}" class="btn btn-primary">Создать</a>
                         </div>
 
                         <div class="card-body table-responsive p-0">
@@ -35,15 +35,15 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Наименование</th>
-                                    <th>Кол-во товаров</th>
+                                    <th>Цвет</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($categories as $category)
+                                @foreach($colors as $color)
                                     <tr>
-                                        <td>{{ $category->id }}</td>
-                                        <td><a href="{{ route('category.show', $category) }}">{{ $category->title }}</a></td>
-                                        <td>{{ $category->posts }}</td>
+                                        <td>{{ $color->id }}</td>
+                                        <td><a href="{{ route('color.show', $color) }}">{{ $color->title }}</a></td>
+                                        <td><div style="width: 20px; height: 20px; background-color: {{'#' . $color->title }};"></div></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
