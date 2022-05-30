@@ -55,3 +55,13 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function() {
     Route::delete('/{user}', 'DeleteController')->name('user.delete');
 });
 
+Route::group(['namespace' => 'Product', 'prefix' => 'products'], function() {
+    Route::get('/', 'IndexController')->name('product.index');
+    Route::get('/create', 'CreateController')->name('product.create');
+    Route::post('/', 'StoreController')->name('product.store');
+    Route::get('/{product}', 'ShowController')->name('product.show');
+    Route::get('/{product}/edit', 'EditController')->name('product.edit');
+    Route::patch('/{product}', 'UpdateController')->name('product.update');
+    Route::delete('/{product}', 'DeleteController')->name('product.delete');
+});
+
