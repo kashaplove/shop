@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table table-hover text-nowrap table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -45,21 +45,22 @@
                                 </thead>
                                 <tbody>
                                 @foreach($products as $product)
-                                    <tr style="height: 200px;">
+                                    <tr style="">
                                         <td>{{ $product->id }}</td>
-                                        <td><img src="{{ asset('/storage/' . $product->preview_image) }}" alt="" width="180"></td>
+                                        <td><img src="{{ asset('/storage/' . $product->preview_image) }}" alt="" width="30"></td>
                                         <td>{{ $product->title }}</td>
                                         <td>{{ $product->description }}</td>
                                         <td>{{ $product->quantity }}</td>
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->is_published==1 ? 'Да' : 'Нет' }}</td>
-                                        <td>{{ $product->category_id }}</td>
+                                        <td>{{ $product->category->title }}</td>
                                         </a>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
+
 
                     </div>
 

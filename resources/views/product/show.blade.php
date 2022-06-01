@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Пользователь "{{ $user->name . ' ' . $user->surname }}"</h1>
+                    <h1 class="m-0">Товар "{{ $product->title }}"</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Пользователь</li>
+                        <li class="breadcrumb-item active">Товар</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -27,53 +27,16 @@
                     <div class="card">
                         <div class="d-flex p-3">
                             <div class="mr-3">
-                                <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary">Редактировать</a>
+                                <a href="{{ route('product.edit', $product->id) }}" class="btn btn-primary">Редактировать</a>
                             </div>
-                            <form action="{{ route('user.delete', $user->id) }}" method="post">
+                            <form action="{{ route('product.delete', $product->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <input type="submit" class="btn btn-danger" value="Удалить">
                             </form>
                         </div>
 
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>{{ $user->id }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>{{ $user->email }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Имя</td>
-                                        <td>{{ $user->name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Фамилия</td>
-                                        <td>{{ $user->surname }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Отчество</td>
-                                        <td>{{ $user->patronymic }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Возраст</td>
-                                        <td>{{ $user->age }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Адрес</td>
-                                        <td>{{ $user->address }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Пол</td>
-                                        <td>{{ $user->gender==0 ? 'Ж' : 'М' }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+
 
                     </div>
 
