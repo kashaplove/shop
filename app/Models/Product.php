@@ -13,7 +13,12 @@ class Product extends Model
     protected $guarded = false;
 
 
+
     public function category() {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, 'product_tags', 'product_id', 'tag_id');
     }
 }

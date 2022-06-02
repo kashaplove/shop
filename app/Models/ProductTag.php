@@ -9,6 +9,8 @@ class ProductTag extends Model
 {
     use HasFactory;
 
-    protected $table = 'product_tag';
+    protected $table = 'product_tags';
     protected $guarded = false;
+
+
 }

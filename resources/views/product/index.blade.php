@@ -48,7 +48,7 @@
                                     <tr style="">
                                         <td>{{ $product->id }}</td>
                                         <td><img src="{{ asset('/storage/' . $product->preview_image) }}" alt="" width="30"></td>
-                                        <td>{{ $product->title }}</td>
+                                        <td><a href="{{ route('product.show', $product->id) }}">{{ $product->title }}</a></td>
                                         <td>{{ $product->description }}</td>
                                         <td>{{ $product->quantity }}</td>
                                         <td>{{ $product->price }}</td>

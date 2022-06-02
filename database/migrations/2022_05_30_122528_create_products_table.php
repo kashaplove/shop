@@ -22,9 +22,11 @@ return new class extends Migration
             $table->unsignedInteger('quantity');
             $table->unsignedInteger('price');
             $table->boolean('is_published')->default(true);
+            $table->unsignedBigInteger('category_id')->nullable();
 
 
-            $table->foreignId('category_id')->nullable()->index()->constrained('categories');
+            $table->index('category_id', 'product_category_idx');
+            $table->foreign('category_id', 'product_category_fk')->on('categories')->references('id');
             $table->timestamps();
         });
     }

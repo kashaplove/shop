@@ -24,8 +24,8 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-6">
-                    <div class="card">
-                        <div class="d-flex p-3">
+                    <div class="card p-3">
+                        <div class="d-flex mb-3">
                             <div class="mr-3">
                                 <a href="{{ route('product.edit', $product->id) }}" class="btn btn-primary">Редактировать</a>
                             </div>
@@ -33,10 +33,35 @@
                                 @csrf
                                 @method('delete')
                                 <input type="submit" class="btn btn-danger" value="Удалить">
+                                <input type="hidden" name="id" value="{{ $product->id }}">
                             </form>
                         </div>
 
-
+                        <div class="d-flex">
+                            <div class="img mr-3">
+                                <img src="{{ asset('/storage/' . $product->preview_image) }}" width="200" alt="">
+                            </div>
+                            <div class="">
+                                <div class="font-weight-bold mb-3">
+                                    {{ $product->title }}
+                                </div>
+                                <div class="desc mb-3">
+                                    {{ $product->description }}
+                                </div>
+                                <div class="quantity">
+                                    Количество на складе: {{ $product->quantity }}
+                                </div>
+                                <div class="price">
+                                    Цена: {{ $product->price }}
+                                </div>
+                                <div class="category">
+                                    Категория: {{ $product->category->title }}
+                                </div>
+                                <div class="text-secondary mt-3">
+                                    {{ $product->content }}
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 

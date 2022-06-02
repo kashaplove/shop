@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product_tag', function (Blueprint $table) {
+        Schema::create('product_tags', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tag_id')->nullable()->index()->constrained('tags');
-            $table->foreignId('product_id')->nullable()->index()->constrained('products');
+
+            $table->unsignedBigInteger('tag_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
+
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_tag');
+        Schema::dropIfExists('product_tags');
     }
 };
