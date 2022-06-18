@@ -34,6 +34,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Цвет</th>
                                     <th>Картинка</th>
                                     <th>Название</th>
                                     <th>Описание</th>
@@ -47,6 +48,11 @@
                                 @foreach($products as $product)
                                     <tr style="">
                                         <td>{{ $product->id }}</td>
+                                        <td>
+                                            @foreach($product->colors as $color)
+                                                <div style="width: 20px; height: 20px; background-color: {{'#' . $color->title }};"></div>
+                                            @endforeach
+                                        </td>
                                         <td><img src="{{ asset('/storage/' . $product->preview_image) }}" alt="" width="30"></td>
                                         <td><a href="{{ route('product.show', $product->id) }}">{{ $product->title }}</a></td>
                                         <td>{{ $product->description }}</td>

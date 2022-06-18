@@ -27,10 +27,9 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string',
             'description' => 'required|string',
             'content' => 'required|string',
-            'preview_image' => 'required|string',
             'quantity' => 'required|integer',
             'price' => 'required|integer',
-            'is_published' => 'required|boolean',
+            'is_published' => '',
             'category_id' => 'required|integer',
         ];
     }

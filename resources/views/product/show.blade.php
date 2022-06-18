@@ -10,7 +10,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Товар</li>
+                        <li class="breadcrumb-item active"><a href="{{ route('product.index') }}">Товары </a>/ {{ $product->title }}</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
